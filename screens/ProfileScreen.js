@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import { colors } from "../theme/colors";
 
 export default function ProfileScreen({ navigation }) {
   const user = null;
@@ -106,7 +107,7 @@ export default function ProfileScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#0f172a",
+    backgroundColor: colors.darkBackground,
   },
   scroll: {
     flex: 1,
@@ -116,7 +117,7 @@ const styles = StyleSheet.create({
     paddingBottom: 40,
   },
   card: {
-    backgroundColor: "#020617",
+    backgroundColor: colors.cardBackground,
     borderRadius: 20,
     padding: 24,
     marginBottom: 24,
@@ -129,7 +130,7 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 18,
     fontWeight: "700",
-    color: "#e5e7eb",
+    color: colors.textOnDark,
     marginBottom: 16,
   },
   sectionTitleSpaced: {
@@ -138,25 +139,25 @@ const styles = StyleSheet.create({
   label: {
     fontSize: 13,
     fontWeight: "500",
-    color: "#9ca3af",
+    color: colors.mutedTextOnDark,
     marginBottom: 6,
   },
   readOnlyValue: {
     fontSize: 16,
-    color: "#e5e7eb",
+    color: colors.textOnDark,
     marginBottom: 16,
     paddingVertical: 10,
     paddingHorizontal: 14,
-    backgroundColor: "#0f172a",
+    backgroundColor: colors.darkBackground,
     borderRadius: 12,
     borderWidth: 1,
-    borderColor: "#1f2937",
+    borderColor: colors.inputBorder,
   },
   input: {
-    backgroundColor: "#0f172a",
+    backgroundColor: colors.darkBackground,
     borderWidth: 1,
-    borderColor: "#1f2937",
-    color: "#f9fafb",
+    borderColor: colors.inputBorder,
+    color: colors.textOnDark,
     paddingVertical: 12,
     paddingHorizontal: 14,
     borderRadius: 12,
@@ -164,19 +165,19 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   primaryButton: {
-    backgroundColor: "#22c55e",
+    backgroundColor: colors.success,
     paddingVertical: 14,
     borderRadius: 999,
     alignItems: "center",
     justifyContent: "center",
-    shadowColor: "#22c55e",
+    shadowColor: colors.success,
     shadowOpacity: 0.4,
     shadowRadius: 10,
     shadowOffset: { width: 0, height: 6 },
     elevation: 4,
   },
   primaryButtonText: {
-    color: "#022c22",
+    color: colors.successTextOnDark,
     fontSize: 16,
     fontWeight: "700",
   },

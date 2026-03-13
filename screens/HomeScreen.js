@@ -1,17 +1,24 @@
-import { Alert, Pressable, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  Alert,
+  Pressable,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import { colors } from "../theme/colors";
 
 export default function HomeScreen({ navigation }) {
   const handleLogout = async () => {
     Alert.alert(
       "Not implemented",
-      "Logout is temporarily disabled while Firebase is removed."
+      "Logout is temporarily disabled while Firebase is removed.",
     );
   };
 
   const user = null;
   const userName =
-    user?.displayName ||
-    (user?.email ? user.email.split("@")[0] : "there");
+    user?.displayName || (user?.email ? user.email.split("@")[0] : "there");
 
   return (
     <View style={styles.container}>
@@ -51,7 +58,10 @@ export default function HomeScreen({ navigation }) {
           </Text>
         </TouchableOpacity>
 
-        <Pressable style={styles.card} onPress={() => navigation.navigate("Profile")}>
+        <Pressable
+          style={styles.card}
+          onPress={() => navigation.navigate("Profile")}
+        >
           <View style={styles.cardIconCircle}>
             <Text style={styles.cardIconText}>👤</Text>
           </View>
@@ -72,7 +82,7 @@ export default function HomeScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#0f172a",
+    backgroundColor: colors.darkBackground,
     paddingTop: 60,
     paddingHorizontal: 20,
     paddingBottom: 24,
@@ -83,12 +93,12 @@ const styles = StyleSheet.create({
   greeting: {
     fontSize: 26,
     fontWeight: "700",
-    color: "#e5e7eb",
+    color: colors.textOnDark,
   },
   subGreeting: {
     marginTop: 4,
     fontSize: 14,
-    color: "#9ca3af",
+    color: colors.mutedTextOnDark,
   },
   grid: {
     flex: 1,
@@ -98,7 +108,7 @@ const styles = StyleSheet.create({
   },
   card: {
     width: "48%",
-    backgroundColor: "#020617",
+    backgroundColor: colors.cardBackground,
     borderRadius: 20,
     padding: 16,
     marginBottom: 16,
@@ -112,7 +122,7 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 20,
-    backgroundColor: "#022c22",
+    backgroundColor: colors.successTextOnDark,
     alignItems: "center",
     justifyContent: "center",
     marginBottom: 12,
@@ -123,12 +133,12 @@ const styles = StyleSheet.create({
   cardTitle: {
     fontSize: 14,
     fontWeight: "600",
-    color: "#e5e7eb",
+    color: colors.textOnDark,
     marginBottom: 4,
   },
   cardDescription: {
     fontSize: 12,
-    color: "#9ca3af",
+    color: colors.mutedTextOnDark,
   },
   logoutButton: {
     marginTop: 8,
@@ -137,10 +147,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     borderRadius: 999,
     borderWidth: 1,
-    borderColor: "#374151",
+    borderColor: colors.divider,
   },
   logoutText: {
-    color: "#9ca3af",
+    color: colors.mutedTextOnDark,
     fontSize: 13,
   },
 });

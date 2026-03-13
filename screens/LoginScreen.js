@@ -7,6 +7,8 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import { colors } from "../theme/colors";
+import { loginUser } from "../services/authService";
 
 export default function LoginScreen({ navigation }) {
   const [email, setEmail] = useState("");
@@ -22,8 +24,15 @@ export default function LoginScreen({ navigation }) {
 
     setLoading(true);
     try {
-      // TEMPORARY DEVELOPMENT LOGIN – replace with API call later
-      navigation.navigate("Home");
+      const data = await loginUser(email.trim(), password);
+      // You can use data (e.g. token, user) later if needed.
+      navigation.replace("MainTabs");
+    } catch (error) {
+      const message =
+        error?.response?.data?.message ??
+        error?.message ??
+        "Unable to login. Please try again.";
+      Alert.alert("Login Error", message);
     } finally {
       setLoading(false);
     }
@@ -83,7 +92,7 @@ export default function LoginScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#0f172a",
+    backgroundColor: colors.darkBackground,
     justifyContent: "center",
     alignItems: "center",
     padding: 24,
@@ -91,7 +100,7 @@ const styles = StyleSheet.create({
   card: {
     width: "100%",
     maxWidth: 380,
-    backgroundColor: "#020617",
+    backgroundColor: colors.cardBackground,
     borderRadius: 20,
     paddingVertical: 32,
     paddingHorizontal: 24,
@@ -109,7 +118,7 @@ const styles = StyleSheet.create({
     width: 64,
     height: 64,
     borderRadius: 32,
-    backgroundColor: "#22c55e",
+    backgroundColor: colors.success,
     alignItems: "center",
     justifyContent: "center",
     marginBottom: 12,
@@ -117,28 +126,28 @@ const styles = StyleSheet.create({
   logoText: {
     fontSize: 32,
     fontWeight: "bold",
-    color: "#0f172a",
+    color: colors.darkBackground,
   },
   title: {
     fontSize: 24,
     fontWeight: "700",
-    color: "#e5e7eb",
+    color: colors.textOnDark,
     textAlign: "center",
   },
   subtitle: {
     marginTop: 4,
     fontSize: 14,
-    color: "#9ca3af",
+    color: colors.mutedTextOnDark,
     textAlign: "center",
   },
   form: {
     marginTop: 4,
   },
   input: {
-    backgroundColor: "#020617",
+    backgroundColor: colors.cardBackground,
     borderWidth: 1,
-    borderColor: "#1f2937",
-    color: "#f9fafb",
+    borderColor: colors.inputBorder,
+    color: colors.textOnDark,
     paddingVertical: 12,
     paddingHorizontal: 14,
     borderRadius: 999,
@@ -146,19 +155,19 @@ const styles = StyleSheet.create({
   },
   primaryButton: {
     marginTop: 4,
-    backgroundColor: "#22c55e",
+    backgroundColor: colors.success,
     paddingVertical: 14,
     borderRadius: 999,
     alignItems: "center",
     justifyContent: "center",
-    shadowColor: "#22c55e",
+    shadowColor: colors.success,
     shadowOpacity: 0.4,
     shadowRadius: 10,
     shadowOffset: { width: 0, height: 6 },
     elevation: 4,
   },
   primaryButtonText: {
-    color: "#022c22",
+    color: colors.successTextOnDark,
     fontSize: 16,
     fontWeight: "700",
   },
@@ -169,10 +178,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     borderWidth: 1,
-    borderColor: "#22c55e",
+    borderColor: colors.success,
   },
   secondaryButtonText: {
-    color: "#e5e7eb",
+    color: colors.textOnDark,
     fontSize: 14,
     fontWeight: "500",
   },
