@@ -1,0 +1,27 @@
+export const mockRideRequests = [
+  {
+    id: "req-1",
+    passengerName: "Nimal Perera",
+    pickupLocation: "Galle Face Green",
+    passengerCount: 1,
+    estimatedFare: 5.4,
+    distanceFromDriverKm: 0.6,
+  },
+  {
+    id: "req-2",
+    passengerName: "Chamari Silva",
+    pickupLocation: "Colombo Fort Railway Station",
+    passengerCount: 2,
+    estimatedFare: 7.2,
+    distanceFromDriverKm: 1.1,
+  },
+  {
+    id: "req-3",
+    passengerName: "Isuru Fernando",
+    pickupLocation: "Bambalapitiya Junction",
+    passengerCount: 1,
+    estimatedFare: 4.1,
+    distanceFromDriverKm: 0.4,
+  },
+];
+

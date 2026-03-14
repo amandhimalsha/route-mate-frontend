@@ -1,7 +1,5 @@
-import axios from "axios";
+// Legacy API entrypoint.
+// Prefer importing from "src/services/api" in new code.
+export { default as api } from "../src/services/api";
+export { default } from "../src/services/api";
 
-export const api = axios.create({
-  baseURL: "http://localhost:5000/api",
-});
-
-export default api;

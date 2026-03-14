@@ -9,18 +9,14 @@ import {
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { colors } from "../../theme/colors";
+import { SL_MAP } from "../../src/constants/slLocations";
 
-const INITIAL_REGION = {
-  latitude: 37.78825,
-  longitude: -122.4324,
-  latitudeDelta: 0.05,
-  longitudeDelta: 0.05,
-};
+const INITIAL_REGION = SL_MAP.regions.colombo;
 
 const DRIVER_MARKERS = [
-  { id: "driver-1", latitude: 37.79, longitude: -122.43 },
-  { id: "driver-2", latitude: 37.785, longitude: -122.425 },
-  { id: "driver-3", latitude: 37.782, longitude: -122.44 },
+  { id: "driver-1", ...SL_MAP.points.galleFaceGreen },
+  { id: "driver-2", ...SL_MAP.points.fortRailwayStation },
+  { id: "driver-3", ...SL_MAP.points.bambaJunction },
 ];
 
 function NativeMap() {
