@@ -25,8 +25,8 @@ export default function LoginScreen({ navigation }) {
     setLoading(true);
     try {
       const data = await loginUser(email.trim(), password);
-      // You can use data (e.g. token, user) later if needed.
-      navigation.replace("MainTabs");
+      // You can use data (e.g. token, user/role) later to route by role.
+      navigation.replace("PassengerTabs");
     } catch (error) {
       const message =
         error?.response?.data?.message ??
