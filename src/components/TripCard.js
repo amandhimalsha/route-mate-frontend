@@ -10,7 +10,9 @@ export function TripCard({ trip }) {
       <Text style={styles.meta}>{trip.time || trip.date}</Text>
       <View style={styles.footerRow}>
         <Text style={styles.fare}>
-          {typeof trip.fare === "number" ? `$${trip.fare.toFixed(2)}` : trip.cost}
+          {typeof trip.fare === "number"
+            ? `Rs. ${trip.fare}`
+            : trip.cost}
         </Text>
         <Text style={styles.status}>{trip.status}</Text>
       </View>

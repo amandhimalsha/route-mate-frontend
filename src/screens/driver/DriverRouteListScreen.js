@@ -62,21 +62,21 @@ export default function DriverRouteListScreen({ navigation, route }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.darkBackground,
+    backgroundColor: colors.background,
     paddingTop: 48,
     paddingHorizontal: 16,
   },
   title: {
     fontSize: 20,
     fontWeight: "700",
-    color: colors.textOnDark,
+    color: colors.textPrimary,
     marginBottom: 16,
   },
   listContent: {
     paddingBottom: 24,
   },
   card: {
-    backgroundColor: colors.cardBackground,
+    backgroundColor: colors.white,
     borderRadius: 18,
     padding: 16,
     marginBottom: 12,
@@ -89,12 +89,12 @@ const styles = StyleSheet.create({
   routeTitle: {
     fontSize: 15,
     fontWeight: "600",
-    color: colors.textOnDark,
+    color: colors.textPrimary,
     marginBottom: 4,
   },
   meta: {
     fontSize: 13,
-    color: colors.mutedTextOnDark,
+    color: colors.textSecondary,
     marginBottom: 4,
   },
   status: {

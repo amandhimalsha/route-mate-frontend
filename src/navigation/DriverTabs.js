@@ -4,13 +4,13 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Ionicons } from "@expo/vector-icons";
 
-import DriverHomeScreen from "../../screens/driver/DriverHomeScreen";
-import CreateRouteScreen from "../../screens/driver/CreateRouteScreen";
-import DriverRequestsScreen from "../../screens/driver/DriverRequestsScreen";
-import DriverTripsScreen from "../../screens/driver/DriverTripsScreen";
-import ActiveTripScreen from "../../screens/driver/ActiveTripScreen";
-import DriverRouteListScreen from "../../screens/driver/DriverRouteListScreen";
-import DriverEarningsScreen from "../../screens/driver/DriverEarningsScreen";
+import DriverHomeScreen from "../screens/driver/DriverHomeScreen";
+import CreateRouteScreen from "../screens/driver/CreateRouteScreen";
+import DriverRequestsScreen from "../screens/driver/DriverRequestsScreen";
+import DriverTripsScreen from "../screens/driver/DriverTripsScreen";
+import ActiveTripScreen from "../screens/driver/ActiveTripScreen";
+import DriverRouteListScreen from "../screens/driver/DriverRouteListScreen";
+import DriverEarningsScreen from "../screens/driver/DriverEarningsScreen";
 import ProfileScreen from "../screens/shared/ProfileScreen";
 import { colors } from "../theme/colors";
 

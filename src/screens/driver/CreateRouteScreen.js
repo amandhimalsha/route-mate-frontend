@@ -64,7 +64,7 @@ export default function CreateRouteScreen({ navigation }) {
           <Text style={styles.label}>Start location</Text>
           <TextInput
             style={styles.input}
-            placeholder="e.g. Downtown Station"
+            placeholder="e.g. Negombo Bus Stand"
             placeholderTextColor={colors.placeholderText}
             value={startLocation}
             onChangeText={setStartLocation}
@@ -77,7 +77,7 @@ export default function CreateRouteScreen({ navigation }) {
           <Text style={styles.label}>Destination</Text>
           <TextInput
             style={styles.input}
-            placeholder="e.g. Tech Park Campus"
+            placeholder="e.g. Colombo Fort"
             placeholderTextColor={colors.placeholderText}
             value={destination}
             onChangeText={setDestination}
@@ -129,7 +129,7 @@ export default function CreateRouteScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.darkBackground,
+    backgroundColor: colors.background,
   },
   scroll: {
     flex: 1,
@@ -139,7 +139,7 @@ const styles = StyleSheet.create({
     paddingBottom: 40,
   },
   card: {
-    backgroundColor: colors.cardBackground,
+    backgroundColor: colors.white,
     borderRadius: 20,
     padding: 20,
     marginBottom: 24,
@@ -150,35 +150,35 @@ const styles = StyleSheet.create({
     elevation: 6,
   },
   title: {
-    color: colors.textOnDark,
+    color: colors.textPrimary,
     fontSize: 20,
     fontWeight: "700",
     marginBottom: 4,
   },
   subtitle: {
-    color: colors.mutedTextOnDark,
+    color: colors.textSecondary,
     fontSize: 13,
     marginBottom: 20,
   },
   label: {
-    color: colors.mutedTextOnDark,
+    color: colors.textSecondary,
     fontSize: 13,
     fontWeight: "500",
     marginBottom: 6,
     marginTop: 8,
   },
   input: {
-    backgroundColor: colors.darkBackground,
+    backgroundColor: colors.white,
     borderWidth: 1,
-    borderColor: colors.inputBorder,
-    color: colors.textOnDark,
+    borderColor: colors.divider,
+    color: colors.textPrimary,
     paddingVertical: 12,
     paddingHorizontal: 14,
     borderRadius: 12,
     fontSize: 15,
   },
   helperText: {
-    color: colors.mutedTextOnDark,
+    color: colors.textSecondary,
     fontSize: 11,
     marginTop: 4,
   },

@@ -13,7 +13,7 @@ export default function DriverEarningsScreen() {
       <View style={styles.summaryRow}>
         <View style={styles.summaryCard}>
           <Text style={styles.summaryLabel}>Total earnings</Text>
-          <Text style={styles.summaryValue}>${summary.totalEarnings.toFixed(2)}</Text>
+          <Text style={styles.summaryValue}>Rs. {summary.totalEarnings}</Text>
         </View>
         <View style={styles.summaryCard}>
           <Text style={styles.summaryLabel}>Trips completed</Text>
@@ -24,11 +24,11 @@ export default function DriverEarningsScreen() {
       <View style={styles.summaryRow}>
         <View style={styles.summaryCard}>
           <Text style={styles.summaryLabel}>Avg per ride</Text>
-          <Text style={styles.summaryValue}>${summary.avgPerRide.toFixed(2)}</Text>
+          <Text style={styles.summaryValue}>Rs. {summary.avgPerRide}</Text>
         </View>
         <View style={styles.summaryCard}>
           <Text style={styles.summaryLabel}>This week</Text>
-          <Text style={styles.summaryValue}>${summary.thisWeek.toFixed(2)}</Text>
+          <Text style={styles.summaryValue}>Rs. {summary.thisWeek}</Text>
         </View>
       </View>
 
@@ -59,14 +59,14 @@ export default function DriverEarningsScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.darkBackground,
+    backgroundColor: colors.background,
     paddingTop: 48,
     paddingHorizontal: 16,
   },
   title: {
     fontSize: 20,
     fontWeight: "700",
-    color: colors.textOnDark,
+    color: colors.textPrimary,
     marginBottom: 16,
   },
   summaryRow: {
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
   },
   summaryCard: {
     flex: 1,
-    backgroundColor: colors.cardBackground,
+    backgroundColor: colors.white,
     borderRadius: 18,
     paddingVertical: 12,
     paddingHorizontal: 14,
@@ -89,23 +89,23 @@ const styles = StyleSheet.create({
   },
   summaryLabel: {
     fontSize: 12,
-    color: colors.mutedTextOnDark,
+    color: colors.textSecondary,
     marginBottom: 4,
   },
   summaryValue: {
     fontSize: 16,
     fontWeight: "700",
-    color: colors.textOnDark,
+    color: colors.textPrimary,
   },
   sectionTitle: {
     marginTop: 12,
     marginBottom: 8,
     fontSize: 14,
     fontWeight: "600",
-    color: colors.textOnDark,
+    color: colors.textPrimary,
   },
   chartCard: {
-    backgroundColor: colors.cardBackground,
+    backgroundColor: colors.white,
     borderRadius: 18,
     paddingVertical: 16,
     paddingHorizontal: 14,

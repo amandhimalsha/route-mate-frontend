@@ -1,2 +1,2 @@
-export { mockDriverRoutes as mockRoutes } from "../../data/mockDriverRoutes";
+export { mockDriverRoutes as mockRoutes } from "./mockDriverRoutes";
 

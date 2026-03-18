@@ -31,7 +31,6 @@ export default function RouteSearchScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
-      {/* Header */}
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Find a Route</Text>
         <Text style={styles.headerSubtitle}>
@@ -39,7 +38,6 @@ export default function RouteSearchScreen({ navigation }) {
         </Text>
       </View>
 
-      {/* Search card */}
       <View style={styles.searchCard}>
         <View style={styles.inputRow}>
           <Ionicons

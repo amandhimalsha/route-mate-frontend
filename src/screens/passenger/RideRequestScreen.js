@@ -34,8 +34,8 @@ export default function RideRequestScreen({ route, navigation }) {
             <Text style={styles.name}>{driver.name}</Text>
             <Text style={styles.vehicle}>{driver.vehicle}</Text>
             <Text style={styles.meta}>
-              {driver.trustScore ?? 4.8} •{" "}
-              {driver.availableSeats ?? 3} seats available
+              {driver.trustScore ?? 4.8} • {driver.availableSeats ?? 3} seats
+              available
             </Text>
           </View>
         </View>
@@ -79,7 +79,7 @@ export default function RideRequestScreen({ route, navigation }) {
 
         <View style={styles.priceRow}>
           <Text style={styles.priceLabel}>Estimated cost</Text>
-          <Text style={styles.priceValue}>$4.80</Text>
+          <Text style={styles.priceValue}>Rs. 380</Text>
         </View>
       </View>
 

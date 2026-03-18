@@ -2,10 +2,10 @@ export const mockDriverTrips = {
   upcoming: [
     {
       id: "du1",
-      route: "Downtown Central → Tech Park",
+      route: "Negombo → Colombo Fort",
       passengers: 3,
       distanceKm: 7.8,
-      fare: 14.5,
+      fare: 420,
       status: "Upcoming",
       time: "Tomorrow, 8:20 AM",
     },
@@ -13,19 +13,19 @@ export const mockDriverTrips = {
   completed: [
     {
       id: "dc1",
-      route: "Riverside → Financial District",
+      route: "Gampaha → Colombo",
       passengers: 2,
       distanceKm: 5.2,
-      fare: 10.3,
+      fare: 380,
       status: "Completed",
       time: "Today, 8:05 AM",
     },
     {
       id: "dc2",
-      route: "Campus → Old Town",
+      route: "Kandy → Peradeniya",
       passengers: 1,
       distanceKm: 6.7,
-      fare: 9.8,
+      fare: 360,
       status: "Completed",
       time: "Yesterday, 6:15 PM",
     },
@@ -33,7 +33,7 @@ export const mockDriverTrips = {
   cancelled: [
     {
       id: "dx1",
-      route: "Airport → City Center",
+      route: "Katunayake → Colombo",
       passengers: 2,
       distanceKm: 9.3,
       fare: 0,

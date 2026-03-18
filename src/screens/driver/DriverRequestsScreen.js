@@ -30,7 +30,7 @@ export default function DriverRequestsScreen({ navigation }) {
               {item.passengerCount} passenger
               {item.passengerCount > 1 ? "s" : ""} • {item.distanceFromDriverKm} km away
             </Text>
-            <Text style={styles.fare}>Est. fare ${item.estimatedFare.toFixed(2)}</Text>
+            <Text style={styles.fare}>Est. fare Rs. {item.estimatedFare}</Text>
 
             <View style={styles.actionsRow}>
               <TouchableOpacity
@@ -56,21 +56,21 @@ export default function DriverRequestsScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.darkBackground,
+    backgroundColor: colors.background,
     paddingTop: 48,
     paddingHorizontal: 16,
   },
   title: {
     fontSize: 20,
     fontWeight: "700",
-    color: colors.textOnDark,
+    color: colors.textPrimary,
     marginBottom: 16,
   },
   listContent: {
     paddingBottom: 24,
   },
   card: {
-    backgroundColor: colors.cardBackground,
+    backgroundColor: colors.white,
     borderRadius: 18,
     padding: 16,
     marginBottom: 12,
@@ -83,12 +83,12 @@ const styles = StyleSheet.create({
   name: {
     fontSize: 15,
     fontWeight: "600",
-    color: colors.textOnDark,
+    color: colors.textPrimary,
   },
   meta: {
     marginTop: 4,
     fontSize: 13,
-    color: colors.mutedTextOnDark,
+    color: colors.textSecondary,
   },
   fare: {
     marginTop: 8,

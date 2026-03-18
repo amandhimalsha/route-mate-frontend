@@ -1,31 +1,23 @@
 import React, { useState } from "react";
-import { FlatList, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View, FlatList } from "react-native";
 import { colors } from "../../theme/colors";
-import { mockDriverTrips } from "../../data/mockDriverTrips";
+import { mockTrips } from "../../data/mockTrips";
 
 const TABS = ["Upcoming", "Completed", "Cancelled"];
 
-export default function DriverTripsScreen({ navigation }) {
+export default function PassengerTripsScreen() {
   const [activeTab, setActiveTab] = useState("Upcoming");
 
   const trips =
     activeTab === "Upcoming"
-      ? mockDriverTrips.upcoming
+      ? mockTrips.upcoming
       : activeTab === "Completed"
-      ? mockDriverTrips.completed
-      : mockDriverTrips.cancelled;
+      ? mockTrips.completed
+      : mockTrips.cancelled;
 
   return (
     <View style={styles.container}>
-      <View style={styles.headerRow}>
-        <Text style={styles.title}>Your trips</Text>
-        <TouchableOpacity
-          onPress={() => navigation.navigate("DriverEarnings")}
-          style={styles.earningsButton}
-        >
-          <Text style={styles.earningsButtonText}>View earnings</Text>
-        </TouchableOpacity>
-      </View>
+      <Text style={styles.title}>Your trips</Text>
 
       <View style={styles.tabsRow}>
         {TABS.map((tab) => {
@@ -37,7 +29,10 @@ export default function DriverTripsScreen({ navigation }) {
               onPress={() => setActiveTab(tab)}
             >
               <Text
-                style={[styles.tabChipText, selected && styles.tabChipTextSelected]}
+                style={[
+                  styles.tabChipText,
+                  selected && styles.tabChipTextSelected,
+                ]}
               >
                 {tab}
               </Text>
@@ -52,14 +47,11 @@ export default function DriverTripsScreen({ navigation }) {
         contentContainerStyle={styles.listContent}
         renderItem={({ item }) => (
           <View style={styles.card}>
+            <Text style={styles.driver}>{item.driver}</Text>
             <Text style={styles.route}>{item.route}</Text>
-            <Text style={styles.meta}>
-              {item.passengers} passenger
-              {item.passengers > 1 ? "s" : ""} • {item.distanceKm} km
-            </Text>
-            <Text style={styles.meta}>{item.time}</Text>
+            <Text style={styles.meta}>{item.date}</Text>
             <View style={styles.footerRow}>
-              <Text style={styles.fare}>${item.fare.toFixed(2)}</Text>
+              <Text style={styles.cost}>{item.cost}</Text>
               <Text style={styles.status}>{item.status}</Text>
             </View>
           </View>
@@ -72,31 +64,15 @@ export default function DriverTripsScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.darkBackground,
+    backgroundColor: colors.background,
     paddingTop: 48,
     paddingHorizontal: 16,
-  },
-  headerRow: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    marginBottom: 12,
   },
   title: {
     fontSize: 20,
     fontWeight: "700",
-    color: colors.textOnDark,
-  },
-  earningsButton: {
-    paddingVertical: 6,
-    paddingHorizontal: 12,
-    borderRadius: 999,
-    borderWidth: 1,
-    borderColor: colors.inputBorder,
-  },
-  earningsButtonText: {
-    fontSize: 12,
-    color: colors.textOnDark,
+    color: colors.textPrimary,
+    marginBottom: 12,
   },
   tabsRow: {
     flexDirection: "row",
@@ -127,25 +103,30 @@ const styles = StyleSheet.create({
     paddingBottom: 24,
   },
   card: {
-    backgroundColor: colors.cardBackground,
+    backgroundColor: colors.white,
     borderRadius: 16,
     padding: 14,
     marginBottom: 10,
     shadowColor: "#000",
-    shadowOpacity: 0.15,
+    shadowOpacity: 0.06,
     shadowRadius: 8,
     shadowOffset: { width: 0, height: 4 },
-    elevation: 4,
+    elevation: 3,
   },
-  route: {
+  driver: {
     fontSize: 15,
     fontWeight: "600",
-    color: colors.textOnDark,
+    color: colors.textPrimary,
+  },
+  route: {
+    marginTop: 2,
+    fontSize: 13,
+    color: colors.textSecondary,
   },
   meta: {
     marginTop: 4,
     fontSize: 12,
-    color: colors.mutedTextOnDark,
+    color: colors.textSecondary,
   },
   footerRow: {
     marginTop: 8,
@@ -153,10 +134,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
   },
-  fare: {
+  cost: {
     fontSize: 14,
     fontWeight: "600",
-    color: colors.textOnDark,
+    color: colors.textPrimary,
   },
   status: {
     fontSize: 13,

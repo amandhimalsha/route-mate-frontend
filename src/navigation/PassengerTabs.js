@@ -4,13 +4,13 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Ionicons } from "@expo/vector-icons";
 
-import PassengerHomeScreen from "../../screens/passenger/PassengerHomeScreen";
-import RouteSearchScreen from "../../screens/passenger/RouteSearchScreen";
-import DriverListScreen from "../../screens/passenger/DriverListScreen";
-import RideRequestScreen from "../../screens/passenger/RideRequestScreen";
-import RideTrackingScreen from "../../screens/passenger/RideTrackingScreen";
-import PassengerTripsScreen from "../../screens/passenger/PassengerTripsScreen";
-import PassengerNotificationsScreen from "../../screens/passenger/PassengerNotificationsScreen";
+import PassengerHomeScreen from "../screens/passenger/PassengerHomeScreen";
+import RouteSearchScreen from "../screens/passenger/RouteSearchScreen";
+import DriverListScreen from "../screens/passenger/DriverListScreen";
+import RideRequestScreen from "../screens/passenger/RideRequestScreen";
+import RideTrackingScreen from "../screens/passenger/RideTrackingScreen";
+import PassengerTripsScreen from "../screens/passenger/PassengerTripsScreen";
+import PassengerNotificationsScreen from "../screens/passenger/PassengerNotificationsScreen";
 import ProfileScreen from "../screens/shared/ProfileScreen";
 import { colors } from "../theme/colors";
 

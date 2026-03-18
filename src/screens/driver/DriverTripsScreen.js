@@ -1,23 +1,31 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, TouchableOpacity, View, FlatList } from "react-native";
+import { FlatList, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { colors } from "../../theme/colors";
-import { mockTrips } from "../../data/mockTrips";
+import { mockDriverTrips } from "../../data/mockDriverTrips";
 
 const TABS = ["Upcoming", "Completed", "Cancelled"];
 
-export default function PassengerTripsScreen() {
+export default function DriverTripsScreen({ navigation }) {
   const [activeTab, setActiveTab] = useState("Upcoming");
 
   const trips =
     activeTab === "Upcoming"
-      ? mockTrips.upcoming
+      ? mockDriverTrips.upcoming
       : activeTab === "Completed"
-      ? mockTrips.completed
-      : mockTrips.cancelled;
+      ? mockDriverTrips.completed
+      : mockDriverTrips.cancelled;
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Your trips</Text>
+      <View style={styles.headerRow}>
+        <Text style={styles.title}>Your trips</Text>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("DriverEarnings")}
+          style={styles.earningsButton}
+        >
+          <Text style={styles.earningsButtonText}>View earnings</Text>
+        </TouchableOpacity>
+      </View>
 
       <View style={styles.tabsRow}>
         {TABS.map((tab) => {
@@ -25,17 +33,11 @@ export default function PassengerTripsScreen() {
           return (
             <TouchableOpacity
               key={tab}
-              style={[
-                styles.tabChip,
-                selected && styles.tabChipSelected,
-              ]}
+              style={[styles.tabChip, selected && styles.tabChipSelected]}
               onPress={() => setActiveTab(tab)}
             >
               <Text
-                style={[
-                  styles.tabChipText,
-                  selected && styles.tabChipTextSelected,
-                ]}
+                style={[styles.tabChipText, selected && styles.tabChipTextSelected]}
               >
                 {tab}
               </Text>
@@ -50,11 +52,14 @@ export default function PassengerTripsScreen() {
         contentContainerStyle={styles.listContent}
         renderItem={({ item }) => (
           <View style={styles.card}>
-            <Text style={styles.driver}>{item.driver}</Text>
             <Text style={styles.route}>{item.route}</Text>
-            <Text style={styles.meta}>{item.date}</Text>
+            <Text style={styles.meta}>
+              {item.passengers} passenger
+              {item.passengers > 1 ? "s" : ""} • {item.distanceKm} km
+            </Text>
+            <Text style={styles.meta}>{item.time}</Text>
             <View style={styles.footerRow}>
-              <Text style={styles.cost}>{item.cost}</Text>
+              <Text style={styles.fare}>Rs. {item.fare}</Text>
               <Text style={styles.status}>{item.status}</Text>
             </View>
           </View>
@@ -71,11 +76,27 @@ const styles = StyleSheet.create({
     paddingTop: 48,
     paddingHorizontal: 16,
   },
+  headerRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginBottom: 12,
+  },
   title: {
     fontSize: 20,
     fontWeight: "700",
     color: colors.textPrimary,
-    marginBottom: 12,
+  },
+  earningsButton: {
+    paddingVertical: 6,
+    paddingHorizontal: 12,
+    borderRadius: 999,
+    borderWidth: 1,
+    borderColor: colors.inputBorder,
+  },
+  earningsButtonText: {
+    fontSize: 12,
+    color: colors.textPrimary,
   },
   tabsRow: {
     flexDirection: "row",
@@ -111,20 +132,15 @@ const styles = StyleSheet.create({
     padding: 14,
     marginBottom: 10,
     shadowColor: "#000",
-    shadowOpacity: 0.06,
+    shadowOpacity: 0.15,
     shadowRadius: 8,
     shadowOffset: { width: 0, height: 4 },
-    elevation: 3,
+    elevation: 4,
   },
-  driver: {
+  route: {
     fontSize: 15,
     fontWeight: "600",
     color: colors.textPrimary,
-  },
-  route: {
-    marginTop: 2,
-    fontSize: 13,
-    color: colors.textSecondary,
   },
   meta: {
     marginTop: 4,
@@ -137,7 +153,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
   },
-  cost: {
+  fare: {
     fontSize: 14,
     fontWeight: "600",
     color: colors.textPrimary,

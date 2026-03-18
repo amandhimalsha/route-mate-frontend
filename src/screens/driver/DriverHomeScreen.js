@@ -13,7 +13,7 @@ export default function DriverHomeScreen({ navigation }) {
 
   const stats = {
     todaysTrips: 5,
-    todaysEarnings: 42.5,
+    todaysEarnings: 1450,
     passengersServed: 8,
   };
 
@@ -67,7 +67,7 @@ export default function DriverHomeScreen({ navigation }) {
         </View>
         <View style={styles.statCard}>
           <Text style={styles.statLabel}>Today&apos;s earnings</Text>
-          <Text style={styles.statValue}>${stats.todaysEarnings.toFixed(2)}</Text>
+          <Text style={styles.statValue}>Rs. {stats.todaysEarnings}</Text>
         </View>
         <View style={styles.statCard}>
           <Text style={styles.statLabel}>Passengers served</Text>
@@ -96,7 +96,7 @@ export default function DriverHomeScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.darkBackground,
+    backgroundColor: colors.background,
     padding: 24,
   },
   header: {
@@ -106,11 +106,11 @@ const styles = StyleSheet.create({
     marginBottom: 24,
   },
   greeting: {
-    color: colors.mutedTextOnDark,
+    color: colors.textSecondary,
     fontSize: 14,
   },
   name: {
-    color: colors.textOnDark,
+    color: colors.textPrimary,
     fontSize: 22,
     fontWeight: "700",
     marginTop: 4,
@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: 999,
-    backgroundColor: colors.cardBackground,
+    backgroundColor: colors.white,
     borderWidth: 1,
     borderColor: colors.inputBorder,
   },
@@ -132,12 +132,12 @@ const styles = StyleSheet.create({
     marginRight: 6,
   },
   statusText: {
-    color: colors.textOnDark,
+    color: colors.textPrimary,
     fontSize: 13,
     fontWeight: "500",
   },
   card: {
-    backgroundColor: colors.cardBackground,
+    backgroundColor: colors.white,
     borderRadius: 20,
     padding: 20,
     marginBottom: 20,
@@ -154,12 +154,12 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   cardTitle: {
-    color: colors.textOnDark,
+    color: colors.textPrimary,
     fontSize: 16,
     fontWeight: "600",
   },
   cardSubtitle: {
-    color: colors.mutedTextOnDark,
+    color: colors.textSecondary,
     fontSize: 13,
     marginTop: 4,
   },
@@ -170,7 +170,7 @@ const styles = StyleSheet.create({
   },
   statCard: {
     flex: 1,
-    backgroundColor: colors.cardBackground,
+    backgroundColor: colors.white,
     borderRadius: 18,
     paddingVertical: 14,
     paddingHorizontal: 12,
@@ -182,12 +182,12 @@ const styles = StyleSheet.create({
     elevation: 4,
   },
   statLabel: {
-    color: colors.mutedTextOnDark,
+    color: colors.textSecondary,
     fontSize: 12,
     marginBottom: 8,
   },
   statValue: {
-    color: colors.textOnDark,
+    color: colors.textPrimary,
     fontSize: 18,
     fontWeight: "700",
   },

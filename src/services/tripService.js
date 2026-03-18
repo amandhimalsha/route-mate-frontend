@@ -1,5 +1,5 @@
 import api from "./api";
-import { mockDriverTrips } from "../../data/mockDriverTrips";
+import { mockDriverTrips } from "../data/mockDriverTrips";
 import { mockTrips } from "../data/mockTrips";
 
 // Trip history and active trip helpers.

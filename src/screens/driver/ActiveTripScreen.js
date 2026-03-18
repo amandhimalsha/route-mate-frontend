@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { colors } from "../../theme/colors";
-import MapPreview from "../../src/components/MapPreview";
-import { SL_MAP } from "../../src/constants/slLocations";
+import MapPreview from "../../components/MapPreview";
+import { SL_MAP } from "../../constants/slLocations";
 
 const INITIAL_REGION = SL_MAP.regions.colombo;
 
@@ -64,7 +64,9 @@ export default function ActiveTripScreen({ route }) {
           <Ionicons name="person-circle-outline" size={24} color={colors.white} />
           <View style={styles.rowText}>
             <Text style={styles.label}>Passenger</Text>
-            <Text style={styles.value}>{request?.passengerName ?? "Demo passenger"}</Text>
+            <Text style={styles.value}>
+              {request?.passengerName ?? "Demo passenger"}
+            </Text>
           </View>
         </View>
 
@@ -122,7 +124,7 @@ export default function ActiveTripScreen({ route }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.darkBackground,
+    backgroundColor: colors.background,
   },
   mapContainer: {
     flex: 1,
@@ -131,7 +133,7 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   bottomCard: {
-    backgroundColor: colors.cardBackground,
+    backgroundColor: colors.white,
     borderTopLeftRadius: 24,
     borderTopRightRadius: 24,
     padding: 20,
@@ -146,7 +148,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 18,
     fontWeight: "700",
-    color: colors.textOnDark,
+    color: colors.textPrimary,
   },
   statusPill: {
     flexDirection: "row",
@@ -154,7 +156,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 6,
     borderRadius: 999,
-    backgroundColor: colors.darkBackground,
+    backgroundColor: colors.background,
   },
   statusDot: {
     width: 8,
@@ -164,7 +166,7 @@ const styles = StyleSheet.create({
   },
   statusText: {
     fontSize: 12,
-    color: colors.textOnDark,
+    color: colors.textPrimary,
   },
   row: {
     flexDirection: "row",
@@ -177,11 +179,11 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: 11,
-    color: colors.mutedTextOnDark,
+    color: colors.textSecondary,
   },
   value: {
     fontSize: 14,
-    color: colors.textOnDark,
+    color: colors.textPrimary,
     marginTop: 2,
   },
   actionsRow: {
