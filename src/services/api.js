@@ -1,26 +1,20 @@
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:3000/api",
+  baseURL: "http://192.168.8.105:3000",
   timeout: 5000,
 });
 
 api.interceptors.request.use(
   async (config) => {
-    // TEMPORARY TOKEN ATTACHMENT
-    // Replace this with real token retrieval (e.g. AsyncStorage) when backend is ready.
-    const token = null;
-
+    const token = await AsyncStorage.getItem("accessToken");
     if (token) {
-      config.headers = {
-        ...config.headers,
-        Authorization: `Bearer ${token}`,
-      };
+      config.headers.Authorization = `Bearer ${token}`;
     }
-
     return config;
   },
-  (error) => Promise.reject(error)
+  (error) => Promise.reject(error),
 );
 
 api.interceptors.response.use(
@@ -30,8 +24,7 @@ api.interceptors.response.use(
     // You can inspect error.response?.status here and perform global actions
     // such as logging out on 401, showing a toast, etc.
     return Promise.reject(error);
-  }
+  },
 );
 
 export default api;
-
